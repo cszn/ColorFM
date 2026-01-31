@@ -6,3 +6,12 @@
 我们已将该方法部署为可在线运行的 Demo，欢迎体验：  
 👉 https://huggingface.co/spaces/heyh97791/Neural_Color_Transfer
 
+
+
+
+
+
+| Input | Style | Output |
+|      :---:      |     :---:        |        :-----:         |
+|  <img height="300" src="figs/input1.png">  |  <img height="300" src="figs/style1.png">  | <img height="300" src="figs/output1.png">   |
+
