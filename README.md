@@ -1,17 +1,23 @@
-## Neural Color Transfer
+# ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching
 
-**Neural Color Transfer** 是一个基于深度学习的颜色迁移方法，旨在将参考图像的色彩风格自然、稳定地迁移到目标图像上，同时尽量保持原始结构与细节一致。
+Yuhang He<sup>1</sup>, Kai Zhang<sup>1†</sup>, Xiaoming Li<sup>1</sup>, Du Chen<sup>2</sup>, Jian Yang<sup>1</sup>
 
-### Online Demo
-我们已将该方法部署为可在线运行的 Demo，欢迎体验：  
-👉 https://huggingface.co/spaces/heyh97791/Neural_Color_Transfer
+<sup>1</sup>Nanjing University, China  
+<sup>2</sup>VIVO BlueImage Lab, China
 
+___________
 
+Online Demo
+----------
 
+[ColorFM-L Demo](https://huggingface.co/spaces/heyh97791/ColorFM-L)
 
-
+Visual Examples
+----------
 
 | Input | Style | Output |
-|      :---:      |     :---:        |        :-----:         |
-|  <img height="300" src="figs/input1.png">  |  <img height="300" src="figs/style1.png">  | <img height="300" src="figs/output1.png">   |
+|:---:|:---:|:---:|
+| <img src="figs/input1.png" height="300px"/> | <img src="figs/style1.png" height="300px"/> | <img src="figs/output1.png" height="300px"/> |
+| <img src="figs/input2.jpg" height="300px"/> | <img src="figs/style2.jpg" height="300px"/> | <img src="figs/output2.jpg" height="300px"/> |
+| <img src="figs/input3.jpg" height="300px"/> | <img src="figs/style3.jpg" height="300px"/> | <img src="figs/output3.jpg" height="300px"/> |
 

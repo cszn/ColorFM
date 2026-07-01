@@ -1,0 +1,22 @@
+# Local Codex / agent state
+.agents/
+.codex/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
