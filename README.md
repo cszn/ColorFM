@@ -1,6 +1,6 @@
 # ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching
 
-Yuhang He<sup>1</sup>, Kai Zhang<sup>1†</sup>, Xiaoming Li<sup>1</sup>, Du Chen<sup>2</sup>, Jian Yang<sup>1</sup>
+[Yuhang He](https://github.com/heyh31)<sup>1</sup>, [Kai Zhang]([https://](https://github.com/cszn))<sup>1†</sup>, Xiaoming Li<sup>1</sup>, Du Chen<sup>2</sup>, Jian Yang<sup>1</sup>
 
 <sup>1</sup>Nanjing University, China  
 <sup>2</sup>VIVO BlueImage Lab, China
@@ -9,8 +9,8 @@ ___________
 
 Online Demo
 ----------
-
-[ColorFM-L Demo](https://huggingface.co/spaces/heyh97791/ColorFM-L)
+[ColorFM-O Demo (Optimization-based)](https://huggingface.co/spaces/heyh97791/ColorFM-O)
+[ColorFM-L Demo (Learning-based)](https://huggingface.co/spaces/heyh97791/ColorFM-L)
 
 Visual Examples
 ----------
