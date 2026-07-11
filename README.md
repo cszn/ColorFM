@@ -23,12 +23,19 @@ Online Demo
 
 [ColorFM-L Demo (Learning-based)](https://huggingface.co/spaces/heyh97791/ColorFM-L)
 
-Visual Examples
+Image Color Transfer
 ----------
 
-| Input | Style | Output |
-|:---:|:---:|:---:|
-| <img src="figs/input1.png" height="300px"/> | <img src="figs/style1.png" height="300px"/> | <img src="figs/output1.png" height="300px"/> |
-| <img src="figs/input2.jpg" height="300px"/> | <img src="figs/style2.jpg" height="300px"/> | <img src="figs/output2.jpg" height="300px"/> |
-| <img src="figs/input3.jpg" height="300px"/> | <img src="figs/style3.jpg" height="300px"/> | <img src="figs/output3.jpg" height="300px"/> |
+<p align="center">
+  <img src="static/images/gifs/image-transfer-01.gif" height="190px" alt="Image color transfer example 1"/>
+  <img src="static/images/gifs/image-transfer-02.gif" height="190px" alt="Image color transfer example 2"/>
+  <img src="static/images/gifs/image-transfer-03.gif" height="190px" alt="Image color transfer example 3"/>
+</p>
 
+Video Color Transfer
+----------
+
+<p align="center">
+  <img src="static/videos/1.gif" height="190px" alt="Video color transfer example 1"/>
+  <img src="static/videos/2.gif" height="190px" alt="Video color transfer example 2"/>
+</p>
