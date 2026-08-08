@@ -35,7 +35,9 @@
   - [Quantitative Results](#quantitative-results)
   - [Image Color Transfer](#image-color-transfer)
   - [Video Color Transfer](#video-color-transfer)
+  - [Acknowledgements](#acknowledgements)
   - [Citation](#citation)
+  - [License](#license)
 
 Overview
 ----------
@@ -124,6 +126,11 @@ Video Color Transfer
   <img src="static/videos/video-transfer-02.gif" height="190px" alt="Video color transfer example 2"/>
 </p>
 
+Acknowledgements
+----------
+
+This project builds upon the open-source implementations of [DINOv2](https://github.com/facebookresearch/dinov2) by Meta AI.
+
 Citation
 ----------
 
@@ -138,3 +145,8 @@ If you find this work useful, please cite:
       url={https://arxiv.org/abs/2607.07119}, 
 }
 ```
+
+License
+----------
+
+This project is released under the [Apache License 2.0](LICENSE).
