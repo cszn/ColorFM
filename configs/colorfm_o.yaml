@@ -1,0 +1,31 @@
+seed: 2025
+train:
+  optimizer: Adam
+  lr: 5e-4
+  betas: [0.9, 0.999]
+  total_steps: 700
+  max_epochs: -1
+
+model:
+  input_dim: 3
+  hidden_num: 512
+
+data:
+  batch_size: 4096
+  shuffle: true
+  num_workers: 0
+  drop_last: true
+
+solver:
+  accelerator: auto
+  devices: 1
+  logger: false
+  enable_checkpointing: false
+  enable_model_summary: false
+  enable_progress_bar: false
+  num_sanity_val_steps: 0
+
+inference:
+  ode_method: midpoint
+  ode_step_size: 0.2
+  chunk_size: 1048576

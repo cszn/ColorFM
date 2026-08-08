@@ -1,0 +1,12 @@
+flow-matching==1.0.10
+lightning>=2.2
+transformers==4.37.2
+omegaconf>=2.3
+huggingface-hub>=0.25
+numpy>=1.26,<3
+pillow>=10
+opencv-python-headless>=4.10
+psutil>=5.9
+pydantic==2.10.6
+einops
+gradio

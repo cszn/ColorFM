@@ -30,6 +30,7 @@
 - [ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching](#colorfm-an-optimization-to-learning-framework-for-color-transfer-via-flow-matching)
   - [Overview](#overview)
   - [Online Demos](#online-demos)
+  - [Testing](#testing)
   - [Method](#method)
   - [Quantitative Results](#quantitative-results)
   - [Image Color Transfer](#image-color-transfer)
@@ -48,6 +49,34 @@ Online Demos
 |:---:|:---:|:---:|
 | ColorFM-O | Optimization-based | [Try online](https://huggingface.co/spaces/heyh97791/ColorFM-O) |
 | ColorFM-L | Learning-based | [Try online](https://huggingface.co/spaces/heyh97791/ColorFM-L) |
+
+
+Testing
+----------
+Create an environment and install the dependencies:
+
+```bash
+conda create -n ColorFM python=3.10 -y
+conda activate ColorFM
+pip install torch torchvision
+pip install -r requirements.txt
+
+# Optional: accelerate ColorFM-L on supported CUDA environments 
+# https://github.com/facebookresearch/xformers
+```
+
+Run local WebUI from the repository root:
+
+```bash
+# Optimization-based ColorFM-O
+python app_colorfm_o.py
+
+# Learning-based ColorFM-L
+python app_colorfm_l.py
+```
+
+Please download [ckpt](https://huggingface.co/heyh97791/ColorFM) and place under ``checkpoints`` folder. ColorFM-O performs instance-specific optimization and does not require a pretrained checkpoint.
+
 
 Method
 ----------
