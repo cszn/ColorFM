@@ -67,7 +67,7 @@ pip install -r requirements.txt
 # https://github.com/facebookresearch/xformers
 ```
 
-Run local WebUI from the repository root:
+Run the **image color transfer** WebUI from the repository root:
 
 ```bash
 # Optimization-based ColorFM-O
@@ -77,7 +77,23 @@ python app_colorfm_o.py
 python app_colorfm_l.py
 ```
 
-Please download [ckpt](https://huggingface.co/heyh97791/ColorFM) and place under ``checkpoints`` folder. ColorFM-O performs instance-specific optimization and does not require a pretrained checkpoint.
+Run the **video color transfer** WebUI:
+
+```bash
+# Optimization-based ColorFM-O video transfer
+python app_colorfm_o_video.py
+
+# Learning-based ColorFM-L video transfer
+python app_colorfm_l_video.py
+```
+
+Both video applications support OpenCV encoding. FFmpeg is recommended for H.264 output and retaining the source audio:
+
+```bash
+conda install -n ColorFM -c conda-forge ffmpeg
+```
+
+Please download [ckpt](https://huggingface.co/heyh97791/ColorFM) and place it under the ``checkpoints`` folder. The checkpoint is required by both ColorFM-L image and video applications. ColorFM-O performs instance-specific optimization and does not require a pretrained checkpoint.
 
 
 Method

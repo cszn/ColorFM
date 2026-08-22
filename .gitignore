@@ -20,3 +20,9 @@ env/
 *.log
 *.tmp
 *.temp
+
+# Outputs
+outputs/
+
+# Model checkpoints
+/checkpoints/*.pth
