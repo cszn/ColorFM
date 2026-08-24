@@ -26,3 +26,7 @@ outputs/
 
 # Model checkpoints
 /checkpoints/*.pth
+/checkpoints/**/*.pth
+/checkpoints/**/*.onnx
+/metrics/*.pth
+/metrics/*.onnx

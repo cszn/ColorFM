@@ -1,0 +1,21 @@
+Metric weights
+==============
+
+The content- and style-similarity metrics follow the evaluation setup from NeuralPreset:
+https://github.com/ZHKKKe/NeuralPreset
+
+Download the two metric weights from the repository root:
+
+curl -L \
+  https://github.com/ZHKKKe/NeuralPreset/raw/refs/heads/main/src/metric/content_similiary/ldc.pth \
+  -o metrics/ldc.pth
+
+curl -L \
+  https://github.com/ZHKKKe/NeuralPreset/raw/refs/heads/main/src/metric/style_similiary/StyleSimiliaryDiscriminator.onnx \
+  -o metrics/StyleSimiliaryDiscriminator.onnx
+
+Expected layout:
+
+metrics/
+├── ldc.pth
+└── StyleSimiliaryDiscriminator.onnx

@@ -9,11 +9,13 @@
 
 from functools import partial
 import math
+import multiprocessing
 from typing import Sequence, Tuple, Union, Callable
 
 import torch
 import torch.nn as nn
 import torch.utils.checkpoint
+from lightning.pytorch.utilities.rank_zero import rank_zero_warn
 from torch.nn.init import trunc_normal_
 from models.layers import Mlp, PatchEmbed, SwiGLUFFNFused, MemEffAttention, NestedTensorBlock as Block
 import numpy as np
@@ -23,6 +25,14 @@ try:
     from xformers.ops import memory_efficient_attention
 except ImportError:
     memory_efficient_attention = None
+
+if (
+    memory_efficient_attention is None
+    and multiprocessing.current_process().name == "MainProcess"
+):
+    rank_zero_warn(
+        "xFormers is not available; using the PyTorch attention fallback."
+    )
 
 # logger = logging.getLogger("dinov2")
 

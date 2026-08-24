@@ -21,6 +21,14 @@ from transformers import SegformerForSemanticSegmentation, SegformerImageProcess
 from datasets.color_pairs import FlowDataset
 from solvers.colorfm_o_solver import FlowSolver, fit_flow_solver
 
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*HTTP_422_UNPROCESSABLE_ENTITY.*",
+    module=r"gradio\.routes",
+)
+
 
 REPO_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = REPO_DIR / "configs" / "colorfm_o.yaml"

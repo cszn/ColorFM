@@ -17,6 +17,13 @@ from PIL import Image
 
 from models.colorfm_l import ColorFM_L
 
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message=r".*HTTP_422_UNPROCESSABLE_ENTITY.*",
+    module=r"gradio\.routes",
+)
 
 REPO_DIR = Path(__file__).resolve().parent
 # change ckpt path here

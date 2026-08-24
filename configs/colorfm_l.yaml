@@ -1,0 +1,41 @@
+exp_name: colorfm_l_stage2
+seed: 2025
+# Single GPU: [0]; multiple GPUs: [0, 1]
+cuda: [0]
+
+train:
+  optimizer: Adam
+  lr: 1e-5
+  betas: [0.9, 0.999]
+  weight_decay: 0.05
+  lpips_weight: 0.1
+  warmup_epochs: 0
+  constant_epochs: 20
+  cosine_epochs: 30
+  max_epochs: 50
+  eta_min: 1e-6
+
+data:
+  # Multiple datasets are matched by position:
+  # image_dir: ["/data/set_a/images", "/data/set_b/images"]
+  # styled_dir: ["/data/set_a/styled", "/data/set_b/styled"]
+  image_dir: []
+  styled_dir: []
+  # Each folder is evaluated using all directed image pairs.
+  # eval_path: ["/data/eval_set"]
+  eval_path: []
+  train_image_size: 256
+  eval_image_size: 512
+  eval_full_resolution: false
+  batch_size: 24
+  num_workers: 8
+  eval_num_workers: 1
+  color_aug_probability: 0.6
+
+solver:
+  log_every_n_steps: 20
+  gradient_clip_val: 1.0
+  checkpoint_every_n_epochs: 5
+  enable_progress_bar: true
+  # -1 saves all evaluation results; 0 disables saving; N saves the first N.
+  eval_save_images: -1
