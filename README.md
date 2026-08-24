@@ -25,6 +25,15 @@
   </a>
 </p>
 
+<p align="center">
+  <img src="static/images/gifs/image-transfer-01.gif" width="44%" alt="ColorFM image color transfer result">
+  <img src="static/videos/video-transfer-01.gif" width="51%" alt="ColorFM video color transfer result">
+</p>
+
+<p align="center">
+  <em>ColorFM image color transfer (left) and video color transfer (right).</em>
+</p>
+
 ---
 
 - [ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching](#colorfm-an-optimization-to-learning-framework-for-color-transfer-via-flow-matching)
