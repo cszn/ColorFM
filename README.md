@@ -34,6 +34,13 @@
   <em>ColorFM image color transfer (left) and video color transfer (right).</em>
 </p>
 
+<p align="center">
+  <strong>🚀 Explore more application results:</strong>
+  <a href="#image-color-transfer"><strong>Image Color Transfer</strong></a>
+  &nbsp;|&nbsp;
+  <a href="#video-color-transfer"><strong>Video Color Transfer</strong></a>
+</p>
+
 ---
 
 - [ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching](#colorfm-an-optimization-to-learning-framework-for-color-transfer-via-flow-matching)
@@ -243,6 +250,18 @@ The following table compares ColorFM with existing color transfer methods in ter
 
 Image Color Transfer
 ----------
+
+<p align="center">
+  <img src="static/images/static/1.jpg" width="32%" alt="Static image color transfer example 1"/>
+  <img src="static/images/static/2.jpg" width="32%" alt="Static image color transfer example 2"/>
+  <img src="static/images/static/3.jpg" width="32%" alt="Static image color transfer example 3"/>
+</p>
+
+<p align="center">
+  <img src="static/images/static/4.jpg" width="32%" alt="Static image color transfer example 4"/>
+  <img src="static/images/static/5.jpg" width="32%" alt="Static image color transfer example 5"/>
+  <img src="static/images/static/6.jpg" width="32%" alt="Static image color transfer example 6"/>
+</p>
 
 <p align="center">
   <img src="static/images/gifs/image-transfer-01.gif" height="190px" alt="Image color transfer example 1"/>
