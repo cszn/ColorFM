@@ -18,6 +18,10 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any, Iterator
 
+REPO_DIR = Path(__file__).resolve().parent.parent
+if str(REPO_DIR) not in sys.path:
+    sys.path.insert(0, str(REPO_DIR))
+
 warnings.filterwarnings(
     "ignore",
     message=r".*HTTP_422_UNPROCESSABLE_ENTITY.*",
@@ -40,11 +44,15 @@ from datasets.color_pairs import FlowDataset
 from solvers.colorfm_o_solver import FlowSolver, fit_flow_solver
 
 
-REPO_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = REPO_DIR / "configs" / "colorfm_o.yaml"
 DEFAULT_CONFIG = OmegaConf.load(CONFIG_PATH)
 SEGMENTATION_MODEL_ID = "nvidia/segformer-b5-finetuned-ade-640-640"
-DEFAULT_OUTPUT_DIR = Path(os.getenv("COLORFM_O_VIDEO_OUTPUT_DIR", "outputs/colorfm_o_video"))
+DEFAULT_OUTPUT_DIR = Path(
+    os.getenv(
+        "COLORFM_O_VIDEO_OUTPUT_DIR",
+        REPO_DIR / "outputs" / "colorfm_o_video",
+    )
+).expanduser()
 DEFAULT_FFMPEG_PATH = os.getenv("FFMPEG_BINARY", "")
 UPLOAD_CACHE_CLEANUP_INTERVAL = 60 * 60
 UPLOAD_CACHE_MAX_AGE = 24 * 60 * 60

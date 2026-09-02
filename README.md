@@ -43,26 +43,29 @@
 
 ---
 
+<details>
+<summary><strong>Table of Contents</strong></summary>
+
 - [ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching](#colorfm-an-optimization-to-learning-framework-for-color-transfer-via-flow-matching)
   - [Overview](#overview)
   - [Online Demos](#online-demos)
-  - [Testing](#testing)
-  - [Training](#training)
-    - [Stage 1: Generate training pairs with ColorFM-O](#stage-1-generate-training-pairs-with-colorfm-o)
-    - [Stage 2: Train the offline ColorFM-L model](#stage-2-train-the-offline-colorfm-l-model)
-    - [Evaluate ColorFM-L](#evaluate-colorfm-l)
-  - [Method](#method)
-  - [Quantitative Results](#quantitative-results)
   - [Image Color Transfer](#image-color-transfer)
   - [Video Color Transfer](#video-color-transfer)
+  - [Method](#method)
+  - [Quantitative Results](#quantitative-results)
+  - [Installation](#installation)
+  - [Testing/Training](#testingtraining)
   - [Acknowledgements](#acknowledgements)
   - [Citation](#citation)
   - [License](#license)
+
+</details>
 
 Overview
 ----------
 
 ColorFM is an optimization-to-learning framework for accurate and semantically consistent color transfer. It connects instance-specific optimization with efficient feed-forward inference through two complementary variants: ColorFM-O and ColorFM-L.
+
 
 Online Demos
 ----------
@@ -72,152 +75,62 @@ Online Demos
 | ColorFM-O | Optimization-based | [Try online](https://huggingface.co/spaces/heyh97791/ColorFM-O) |
 | ColorFM-L | Learning-based | [Try online](https://huggingface.co/spaces/heyh97791/ColorFM-L) |
 
-
-Testing
-----------
-Create an environment and install the dependencies:
-
-```bash
-conda create -n ColorFM python=3.10 -y
-conda activate ColorFM
-pip install torch torchvision
-pip install -r requirements.txt
-
-# Optional: accelerate ColorFM-L on supported CUDA environments 
-# https://github.com/facebookresearch/xformers
-```
-
-Run the **image color transfer** WebUI from the repository root:
-
-```bash
-# Optimization-based ColorFM-O
-python app_colorfm_o.py
-
-# Learning-based ColorFM-L
-python app_colorfm_l.py
-```
-
-Run the **video color transfer** WebUI:
-
-```bash
-# Optimization-based ColorFM-O video transfer
-python app_colorfm_o_video.py
-
-# Learning-based ColorFM-L video transfer
-python app_colorfm_l_video.py
-```
-
-Both video applications support OpenCV encoding. FFmpeg is recommended for H.264 output and retaining the source audio:
-
-```bash
-conda install -n ColorFM -c conda-forge ffmpeg
-```
-
-Please download [ckpt](https://huggingface.co/heyh97791/ColorFM) and place it under the ``checkpoints`` folder. The checkpoint is required by both ColorFM-L image and video applications. ColorFM-O performs instance-specific optimization and does not require a pretrained checkpoint.
-
-Training
+Image Color Transfer
 ----------
 
-ColorFM training consists of two stages. Stage 1 uses ColorFM-O to generate pairs. Stage 2 uses these generated pairs to train the offline ColorFM-L model.
+<p align="center">
+  <strong>Content &nbsp;&nbsp;→&nbsp;&nbsp; Style &nbsp;&nbsp;→&nbsp;&nbsp; Result</strong>
+</p>
 
-### Stage 1: Generate training pairs with ColorFM-O
+<p align="center">
+  <img src="static/images/static/display/1_c.png" width="32%" alt="Content image for example 1"/>
+  <img src="static/images/static/display/1_s.png" width="32%" alt="Style image for example 1"/>
+  <img src="static/images/static/display/1.png" width="32%" alt="Color transfer result for example 1"/>
+</p>
 
-Place the source images in one folder. Because Stage 1 uses `_` to separate the content and style names in `a_b.png`, it is recommended to rename the source images with numeric names first:
+<p align="center">
+  <img src="static/images/static/display/2_c.png" width="32%" alt="Content image for example 2"/>
+  <img src="static/images/static/display/2_s.png" width="32%" alt="Style image for example 2"/>
+  <img src="static/images/static/display/2.png" width="32%" alt="Color transfer result for example 2"/>
+</p>
 
-```bash
-python rename_images.py \
-  --input-dir /data/set_a/original_images \
-  --output-path /data/set_a/images
-```
+<p align="center">
+  <img src="static/images/static/display/3_c.png" width="32%" alt="Content image for example 3"/>
+  <img src="static/images/static/display/3_s.png" width="32%" alt="Style image for example 3"/>
+  <img src="static/images/static/display/3.png" width="32%" alt="Color transfer result for example 3"/>
+</p>
 
-This copies the images to the output folder as `001.jpg`, `002.jpg`, and so on while preserving the source images. Then generate the training pairs:
+<p align="center">
+  <img src="static/images/static/display/4_c.png" width="32%" alt="Content image for example 4"/>
+  <img src="static/images/static/display/4_s.png" width="32%" alt="Style image for example 4"/>
+  <img src="static/images/static/display/4.png" width="32%" alt="Color transfer result for example 4"/>
+</p>
 
-```bash
-python main_train_stage1.py \
-  --input-dir /data/set_a/images \
-  --output-dir /data/set_a/styled
-```
+<p align="center">
+  <img src="static/images/static/display/5_c.png" width="32%" alt="Content image for example 5"/>
+  <img src="static/images/static/display/5_s.png" width="32%" alt="Style image for example 5"/>
+  <img src="static/images/static/display/5.png" width="32%" alt="Color transfer result for example 5"/>
+</p>
 
-Every two different images are paired in both directions. If `a.png` is the content image and `b.png` is the style image, the generated result is saved as:
+<p align="center">
+  <img src="static/images/static/display/6_c.png" width="32%" alt="Content image for example 6"/>
+  <img src="static/images/static/display/6_s.png" width="32%" alt="Style image for example 6"/>
+  <img src="static/images/static/display/6.png" width="32%" alt="Color transfer result for example 6"/>
+</p>
 
-```text
-/data/set_a/styled/a_b.png
-```
+<!-- <p align="center">
+  <img src="static/images/gifs/image-transfer-01.gif" height="190px" alt="Image color transfer example 1"/>
+  <img src="static/images/gifs/image-transfer-02.gif" height="190px" alt="Image color transfer example 2"/>
+  <img src="static/images/gifs/image-transfer-03.gif" height="190px" alt="Image color transfer example 3"/>
+</p> -->
 
-For large-scale pair generation, multiple tasks can run in parallel. Use `run_train_stage1_parallel.sh` as a template for configuring the dataset paths, CUDA devices, and task ranges:
+Video Color Transfer
+----------
 
-```bash
-bash run_train_stage1_parallel.sh
-```
-
-### Stage 2: Train the offline ColorFM-L model
-
-Configure the training datasets and CUDA devices in `configs/colorfm_l.yaml`. The dataset paths are matched by position: `image_dir[0]` corresponds to `styled_dir[0]`, `image_dir[1]` corresponds to `styled_dir[1]`, and so on. All matched datasets are combined for training. Set `eval_path: []` to disable evaluation.
-
-When evaluation is enabled, follow the instructions in `metrics/ckpt_download` to download and place the required metric weights.
-
-Start Stage 2 training:
-
-```bash
-python main_train_stage2.py
-```
-
-Training automatically resumes from `outputs/<exp_name>/checkpoints/last.ckpt` when that file exists. A specific checkpoint can also be selected explicitly:
-
-```bash
-python main_train_stage2.py --resume /path/to/checkpoint.ckpt
-```
-
-The experiment outputs are organized as follows:
-
-```text
-outputs/<exp_name>/
-├── checkpoints/
-│   ├── colorfm_l_epoch=004.ckpt
-│   ├── last.ckpt
-│   └── colorfm_l.pth
-└── logs/
-    └── version_0/
-```
-
-TensorBoard records the training losses and, when evaluation is enabled, Content Similarity, Lipschitz, and Style Similarity:
-
-```bash
-tensorboard --logdir outputs/<exp_name>/logs
-```
-
-### Evaluate ColorFM-L
-
-Before evaluation, follow `metrics/ckpt_download` to place the LDC and Style Similarity weights in the `metrics` folder. The evaluation script accepts both a plain ColorFM-L `.pth` weight file and a Lightning `.ckpt` checkpoint:
-
-```bash
-python main_eval_colorfm_l.py \
-  --checkpoint checkpoints/colorfm_l.pth \
-  --eval-path /data/eval_images \
-  --output-dir outputs/colorfm_l_eval
-```
-
-Multiple evaluation folders can be passed after `--eval-path`. Each folder is evaluated using all directed pairs of different images:
-
-```bash
-python main_eval_colorfm_l.py \
-  --checkpoint checkpoints/colorfm_l.pth \
-  --eval-path /data/eval_a /data/eval_b \
-  --output-dir outputs/colorfm_l_eval
-```
-
-By default, content images are resized to `data.eval_image_size` from `configs/colorfm_l.yaml`. Add `--full-resolution` to keep the original content resolution in the generated results:
-
-```bash
-python main_eval_colorfm_l.py \
-  --checkpoint checkpoints/colorfm_l.pth \
-  --eval-path /data/eval_images \
-  --output-dir outputs/colorfm_l_eval \
-  --full-resolution
-```
-
-Generated images are named `content_style.png`. The number of saved results is controlled by `solver.eval_save_images` in the config: `-1` saves all results, `0` disables saving, and a positive value saves the first N results. If `--output-dir` is omitted, images are saved to `outputs/<exp_name>/eval_images`. 
-
+<p align="center">
+  <img src="static/videos/video-transfer-01.gif" height="190px" alt="Video color transfer example 1"/>
+  <img src="static/videos/video-transfer-02.gif" height="190px" alt="Video color transfer example 2"/>
+</p>
 
 Method
 ----------
@@ -230,15 +143,6 @@ ColorFM formulates color transfer as transporting pixel distributions along velo
 
 <p align="center"><em>Overview of the ColorFM-O and ColorFM-L frameworks.</em></p>
 
-<!--
-Algorithm figure placeholder. Expected file:
-static/images/method/colorfm-algorithm.png
-
-<p align="center">
-  <img src="static/images/method/colorfm-algorithm.png" width="100%" alt="ColorFM algorithm"/>
-</p>
--->
-
 Quantitative Results
 ----------
 
@@ -248,34 +152,29 @@ The following table compares ColorFM with existing color transfer methods in ter
   <img src="static/images/method/quantitative-results.jpg" width="100%" alt="Quantitative comparison with existing color transfer methods"/>
 </p>
 
-Image Color Transfer
+Installation
 ----------
 
-<p align="center">
-  <img src="static/images/static/1.jpg" width="32%" alt="Static image color transfer example 1"/>
-  <img src="static/images/static/2.jpg" width="32%" alt="Static image color transfer example 2"/>
-  <img src="static/images/static/3.jpg" width="32%" alt="Static image color transfer example 3"/>
-</p>
+Create an environment and install the dependencies from the repository root:
 
-<p align="center">
-  <img src="static/images/static/4.jpg" width="32%" alt="Static image color transfer example 4"/>
-  <img src="static/images/static/5.jpg" width="32%" alt="Static image color transfer example 5"/>
-  <img src="static/images/static/6.jpg" width="32%" alt="Static image color transfer example 6"/>
-</p>
+```bash
+conda create -n ColorFM python=3.10 -y
+conda activate ColorFM
+pip install torch torchvision
+pip install -r requirements.txt
+```
 
-<p align="center">
-  <img src="static/images/gifs/image-transfer-01.gif" height="190px" alt="Image color transfer example 1"/>
-  <img src="static/images/gifs/image-transfer-02.gif" height="190px" alt="Image color transfer example 2"/>
-  <img src="static/images/gifs/image-transfer-03.gif" height="190px" alt="Image color transfer example 3"/>
-</p>
+Install the PyTorch build that matches your CUDA version when GPU acceleration is required. [xFormers](https://github.com/facebookresearch/xformers) can optionally accelerate ColorFM-L on supported CUDA environments.
 
-Video Color Transfer
+Download the pretrained ColorFM-L checkpoint from [Hugging Face](https://huggingface.co/heyh97791/ColorFM) and place it under the repository-level `checkpoints` folder. ColorFM-O does not require a pretrained checkpoint.
+
+Testing/Training
 ----------
 
-<p align="center">
-  <img src="static/videos/video-transfer-01.gif" height="190px" alt="Video color transfer example 1"/>
-  <img src="static/videos/video-transfer-02.gif" height="190px" alt="Video color transfer example 2"/>
-</p>
+| Guide | Description |
+|:---|:---|
+| [Testing](app/README.md) | Run the ColorFM-O and ColorFM-L image or video WebUIs. |
+| [Training](TRAINING.md) | Generate ColorFM-O training pairs, train ColorFM-L, and run evaluation. |
 
 Acknowledgements
 ----------
@@ -288,12 +187,11 @@ Citation
 If you find this work useful, please cite:
 
 ```bibtex
-@misc{he2026ColorFM,
-      title={ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching}, 
-      author={Yuhang He and Kai Zhang and Xiaoming Li and Du Chen and Jian Yang},
-      year={2026},
-      eprint={2607.07119},
-      url={https://arxiv.org/abs/2607.07119}, 
+@inproceedings{he2026colorfm,
+    title={ColorFM: An Optimization-to-Learning Framework for Color Transfer via Flow Matching},
+    author={He, Yuhang and Zhang, Kai and Li, Xiaoming and Chen, Du and Yang, Jian},
+    booktitle={European Conference on Computer Vision},
+    year={2026}
 }
 ```
 

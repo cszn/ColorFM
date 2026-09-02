@@ -15,6 +15,10 @@ import warnings
 from pathlib import Path
 from typing import Any, Iterator
 
+REPO_DIR = Path(__file__).resolve().parent.parent
+if str(REPO_DIR) not in sys.path:
+    sys.path.insert(0, str(REPO_DIR))
+
 warnings.filterwarnings(
     "ignore",
     message=r".*HTTP_422_UNPROCESSABLE_ENTITY.*",
@@ -34,10 +38,14 @@ from PIL import Image
 from models.colorfm_l import ColorFM_L
 
 
-REPO_DIR = Path(__file__).resolve().parent
 DEFAULT_WEIGHTS_PATH = REPO_DIR / "checkpoints" / "colorfm_l.pth"
 WEIGHTS_PATH = Path(os.getenv("COLORFM_L_WEIGHTS", DEFAULT_WEIGHTS_PATH)).expanduser()
-DEFAULT_OUTPUT_DIR = Path(os.getenv("COLORFM_L_VIDEO_OUTPUT_DIR", "outputs/colorfm_l_video"))
+DEFAULT_OUTPUT_DIR = Path(
+    os.getenv(
+        "COLORFM_L_VIDEO_OUTPUT_DIR",
+        REPO_DIR / "outputs" / "colorfm_l_video",
+    )
+).expanduser()
 DEFAULT_FFMPEG_PATH = os.getenv("FFMPEG_BINARY", "")
 KERNEL_IMAGE_SIZE = 256
 UPLOAD_CACHE_CLEANUP_INTERVAL = 60 * 60

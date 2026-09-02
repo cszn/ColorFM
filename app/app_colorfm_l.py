@@ -4,6 +4,7 @@ import gc
 import hashlib
 import json
 import os
+import sys
 import threading
 import time
 from datetime import datetime
@@ -15,6 +16,10 @@ import numpy as np
 import torch
 from PIL import Image
 
+REPO_DIR = Path(__file__).resolve().parent.parent
+if str(REPO_DIR) not in sys.path:
+    sys.path.insert(0, str(REPO_DIR))
+
 from models.colorfm_l import ColorFM_L
 
 import warnings
@@ -25,11 +30,12 @@ warnings.filterwarnings(
     module=r"gradio\.routes",
 )
 
-REPO_DIR = Path(__file__).resolve().parent
 # change ckpt path here
 DEFAULT_WEIGHTS_PATH = REPO_DIR / "checkpoints" / "colorfm_l.pth"
 WEIGHTS_PATH = Path(os.getenv("COLORFM_L_WEIGHTS", DEFAULT_WEIGHTS_PATH)).expanduser()
-DEFAULT_OUTPUT_DIR = Path(os.getenv("COLORFM_L_OUTPUT_DIR", "outputs/colorfm_l"))
+DEFAULT_OUTPUT_DIR = Path(
+    os.getenv("COLORFM_L_OUTPUT_DIR", REPO_DIR / "outputs" / "colorfm_l")
+).expanduser()
 
 DEVICE_CHOICES = ["auto", "cuda", "mps", "cpu"]
 DTYPE_CHOICES = ["auto", "bf16", "fp16", "fp32"]

@@ -3,6 +3,7 @@ from __future__ import annotations
 import gc
 import hashlib
 import json
+import sys
 import tempfile
 import threading
 import time
@@ -18,6 +19,10 @@ from omegaconf import OmegaConf
 from PIL import Image
 from transformers import SegformerForSemanticSegmentation, SegformerImageProcessor
 
+REPO_DIR = Path(__file__).resolve().parent.parent
+if str(REPO_DIR) not in sys.path:
+    sys.path.insert(0, str(REPO_DIR))
+
 from datasets.color_pairs import FlowDataset
 from solvers.colorfm_o_solver import FlowSolver, fit_flow_solver
 
@@ -30,11 +35,10 @@ warnings.filterwarnings(
 )
 
 
-REPO_DIR = Path(__file__).resolve().parent
 CONFIG_PATH = REPO_DIR / "configs" / "colorfm_o.yaml"
 DEFAULT_CONFIG = OmegaConf.load(CONFIG_PATH)
 SEGMENTATION_MODEL_ID = "nvidia/segformer-b5-finetuned-ade-640-640"
-DEFAULT_OUTPUT_DIR = Path("outputs/colorfm_o")
+DEFAULT_OUTPUT_DIR = REPO_DIR / "outputs" / "colorfm_o"
 
 RESOLUTION_LIMITS = {
     "Original": 0,
