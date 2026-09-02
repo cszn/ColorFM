@@ -77,45 +77,40 @@ Online Demos
 
 Image Color Transfer
 ----------
-
 <p align="center">
-  <strong>Content &nbsp;&nbsp;→&nbsp;&nbsp; Style &nbsp;&nbsp;→&nbsp;&nbsp; Result</strong>
+  <img src="static/images/static/3_c.jpg" height="240px" alt="Content image for example 3"/>
+  <img src="static/images/static/3_s.jpg" height="240px" alt="Style image for example 3"/>
+  <img src="static/images/static/3.jpg" height="240px" alt="Color transfer result for example 3"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/display/1_c.png" width="32%" alt="Content image for example 1"/>
-  <img src="static/images/static/display/1_s.png" width="32%" alt="Style image for example 1"/>
-  <img src="static/images/static/display/1.png" width="32%" alt="Color transfer result for example 1"/>
+  <img src="static/images/static/2_c.jpg" height="240px" alt="Content image for example 2"/>
+  <img src="static/images/static/2_s.jpg" height="240px" alt="Style image for example 2"/>
+  <img src="static/images/static/2.jpg" height="240px" alt="Color transfer result for example 2"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/display/2_c.png" width="32%" alt="Content image for example 2"/>
-  <img src="static/images/static/display/2_s.png" width="32%" alt="Style image for example 2"/>
-  <img src="static/images/static/display/2.png" width="32%" alt="Color transfer result for example 2"/>
+  <img src="static/images/static/4_c.jpg" height="240px" alt="Content image for example 4"/>
+  <img src="static/images/static/4_s.jpg" height="240px" alt="Style image for example 4"/>
+  <img src="static/images/static/4.jpg" height="240px" alt="Color transfer result for example 4"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/display/3_c.png" width="32%" alt="Content image for example 3"/>
-  <img src="static/images/static/display/3_s.png" width="32%" alt="Style image for example 3"/>
-  <img src="static/images/static/display/3.png" width="32%" alt="Color transfer result for example 3"/>
+  <img src="static/images/static/6_c.jpg" height="240px" alt="Content image for example 6"/>
+  <img src="static/images/static/6_s.jpg" height="240px" alt="Style image for example 6"/>
+  <img src="static/images/static/6.jpg" height="240px" alt="Color transfer result for example 6"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/display/4_c.png" width="32%" alt="Content image for example 4"/>
-  <img src="static/images/static/display/4_s.png" width="32%" alt="Style image for example 4"/>
-  <img src="static/images/static/display/4.png" width="32%" alt="Color transfer result for example 4"/>
+  <img src="static/images/static/5_c.jpg" height="240px" alt="Content image for example 5"/>
+  <img src="static/images/static/5_s.jpg" height="240px" alt="Style image for example 5"/>
+  <img src="static/images/static/5.jpg" height="240px" alt="Color transfer result for example 5"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/display/5_c.png" width="32%" alt="Content image for example 5"/>
-  <img src="static/images/static/display/5_s.png" width="32%" alt="Style image for example 5"/>
-  <img src="static/images/static/display/5.png" width="32%" alt="Color transfer result for example 5"/>
-</p>
-
-<p align="center">
-  <img src="static/images/static/display/6_c.png" width="32%" alt="Content image for example 6"/>
-  <img src="static/images/static/display/6_s.png" width="32%" alt="Style image for example 6"/>
-  <img src="static/images/static/display/6.png" width="32%" alt="Color transfer result for example 6"/>
+  <img src="static/images/static/1_c.jpg" height="240px" alt="Content image for example 1"/>
+  <img src="static/images/static/1_s.jpg" height="240px" alt="Style image for example 1"/>
+  <img src="static/images/static/1.jpg" height="240px" alt="Color transfer result for example 1"/>
 </p>
 
 <!-- <p align="center">
