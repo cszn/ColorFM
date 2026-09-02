@@ -90,28 +90,29 @@ Image Color Transfer
 </p>
 
 <p align="center">
-  <img src="static/images/static/4_c.jpg" height="240px" alt="Content image for example 4"/>
-  <img src="static/images/static/4_s.jpg" height="240px" alt="Style image for example 4"/>
-  <img src="static/images/static/4.jpg" height="240px" alt="Color transfer result for example 4"/>
+  <img src="static/images/static/1_c.jpg" height="140px" alt="Content image for example 1"/>
+  <img src="static/images/static/1_s.jpg" height="140px" alt="Style image for example 1"/>
+  <img src="static/images/static/1.jpg" height="140px" alt="Color transfer result for example 1"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/6_c.jpg" height="240px" alt="Content image for example 6"/>
-  <img src="static/images/static/6_s.jpg" height="240px" alt="Style image for example 6"/>
-  <img src="static/images/static/6.jpg" height="240px" alt="Color transfer result for example 6"/>
+  <img src="static/images/static/4_c.jpg" height="190px" alt="Content image for example 4"/>
+  <img src="static/images/static/4_s.jpg" height="190px" alt="Style image for example 4"/>
+  <img src="static/images/static/4.jpg" height="190px" alt="Color transfer result for example 4"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/5_c.jpg" height="240px" alt="Content image for example 5"/>
-  <img src="static/images/static/5_s.jpg" height="240px" alt="Style image for example 5"/>
-  <img src="static/images/static/5.jpg" height="240px" alt="Color transfer result for example 5"/>
+  <img src="static/images/static/6_c.jpg" height="180px" alt="Content image for example 6"/>
+  <img src="static/images/static/6_s.jpg" height="180px" alt="Style image for example 6"/>
+  <img src="static/images/static/6.jpg" height="180px" alt="Color transfer result for example 6"/>
 </p>
 
 <p align="center">
-  <img src="static/images/static/1_c.jpg" height="240px" alt="Content image for example 1"/>
-  <img src="static/images/static/1_s.jpg" height="240px" alt="Style image for example 1"/>
-  <img src="static/images/static/1.jpg" height="240px" alt="Color transfer result for example 1"/>
+  <img src="static/images/static/5_c.jpg" height="180px" alt="Content image for example 5"/>
+  <img src="static/images/static/5_s.jpg" height="180px" alt="Style image for example 5"/>
+  <img src="static/images/static/5.jpg" height="180px" alt="Color transfer result for example 5"/>
 </p>
+
 
 <!-- <p align="center">
   <img src="static/images/gifs/image-transfer-01.gif" height="190px" alt="Image color transfer example 1"/>
