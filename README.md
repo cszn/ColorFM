@@ -23,6 +23,9 @@
   <a href="https://heyh31.github.io/ColorFM_page/">
     <img src="https://img.shields.io/badge/Project-Page-blue?logo=googlechrome&logoColor=white" alt="Project Page">
   </a>
+  <a href="https://huggingface.co/datasets/heyh97791/ColorFM">
+    <img src="https://img.shields.io/badge/HuggingFace-Dataset-yellow?logo=huggingface&logoColor=white" alt="Hugging Face Dataset">
+  </a>
 </p>
 
 <p align="center">
@@ -165,15 +168,20 @@ Download the pretrained ColorFM-L checkpoint from [Hugging Face](https://hugging
 Testing/Training
 ----------
 
+**[2026-10-12]** Pre-generated Stage 1 training pairs are available on [Hugging Face](https://huggingface.co/datasets/heyh97791/ColorFM). They can be downloaded and used directly to train ColorFM-L in Stage 2; see the [Training guide](TRAINING.md) for download and configuration instructions !!!
+
 | Guide | Description |
 |:---|:---|
 | [Testing](app/README.md) | Run the ColorFM-O and ColorFM-L image or video WebUIs. |
-| [Training](TRAINING.md) | Generate ColorFM-O training pairs, train ColorFM-L, and run evaluation. |
+| [Training](TRAINING.md) | Use the pre-generated Stage 1 dataset or generate pairs yourself, train ColorFM-L, and run evaluation. |
 
 Acknowledgements
 ----------
 
 This project builds upon the open-source implementations of [DINOv2](https://github.com/facebookresearch/dinov2) by Meta AI.
+
+The original images in dataset ColorFM were sourced from [Unsplash](https://unsplash.com/) and are used solely for non-commercial academic research. Copyright remains with the respective photographers; the images are not relicensed under this project's license. For rights-related inquiries or removal requests, please contact us.
+
 
 Citation
 ----------

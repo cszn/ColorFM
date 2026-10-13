@@ -38,6 +38,60 @@ bash run_train_stage1_parallel.sh
 
 ## Stage 2: Train the offline ColorFM-L model
 
+- **[Optional] Use the published Stage 1 dataset**
+
+  The pre-generated ColorFM-O pairs are available from the [ColorFM dataset on Hugging Face](https://huggingface.co/datasets/heyh97791/ColorFM). Download the repository locally (install and log in to `huggingface_hub` first if needed):
+
+  ```bash
+  hf download heyh97791/ColorFM \
+    --repo-type dataset \
+    --local-dir /data/ColorFM
+  ```
+
+  For a small-scale experiment, download only one or a few categories. Include both the original-image folder and its matching `styled_<category>` folder. For example, to download only the animal category:
+
+  ```bash
+  hf download heyh97791/ColorFM \
+    --repo-type dataset \
+    --local-dir /data/ColorFM-animal \
+    --include "animal/**" \
+    --include "styled_animal/**"
+  ```
+
+  Replace `animal` with another category name (for example, `nature`) in both include patterns and use a matching local directory. For this example, configure only the downloaded category:
+
+  ```yaml
+  data:
+    image_dir: [/data/ColorFM-animal/animal]
+    styled_dir: [/data/ColorFM-animal/styled_animal]
+  ```
+
+  The CLI accepts glob patterns through `--include`; see the [Hugging Face download guide](https://huggingface.co/docs/huggingface_hub/en/guides/cli#hf-download) for details.
+
+  The dataset contains the original category folders and their matching `styled_<category>` folders. Set each original folder in `data.image_dir` and its corresponding styled folder in `data.styled_dir`, in the same order, in `configs/colorfm_l.yaml`. For example:
+
+  ```yaml
+  data:
+    image_dir:
+      - /data/ColorFM/animal
+      - /data/ColorFM/city_street_building
+      - /data/ColorFM/indoor
+      - /data/ColorFM/nature
+      - /data/ColorFM/portraits
+      - /data/ColorFM/random
+      - /data/ColorFM/still_life
+    styled_dir:
+      - /data/ColorFM/styled_animal
+      - /data/ColorFM/styled_city_street_building
+      - /data/ColorFM/styled_indoor
+      - /data/ColorFM/styled_nature
+      - /data/ColorFM/styled_portraits
+      - /data/ColorFM/styled_random
+      - /data/ColorFM/styled_still_life
+  ```
+
+  Styled images may be organized in subfolders by content ID; the Stage 2 loader scans these folders recursively. After setting the paths, continue with the training command below.
+
 Configure the training datasets and CUDA devices in `configs/colorfm_l.yaml`. The dataset paths are matched by position: `image_dir[0]` corresponds to `styled_dir[0]`, `image_dir[1]` corresponds to `styled_dir[1]`, and so on. All matched datasets are combined for training. Set `eval_path: []` to disable evaluation.
 
 When evaluation is enabled, follow the instructions in `metrics/ckpt_download` to download and place the required metric weights.

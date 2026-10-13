@@ -31,7 +31,7 @@ class ColorTripletDataset(Dataset):
             }
             styled_paths = sorted(
                 path
-                for path in Path(styled_dir).expanduser().iterdir()
+                for path in Path(styled_dir).expanduser().rglob("*")
                 if path.is_file() and path.suffix.lower() in IMAGE_EXTENSIONS
             )
             for styled_path in styled_paths:
