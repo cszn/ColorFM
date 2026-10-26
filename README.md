@@ -20,6 +20,9 @@
   <a href="https://arxiv.org/abs/2607.07119">
     <img src="https://img.shields.io/badge/arXiv-2607.07119-b31b1b?logo=arxiv&logoColor=white" alt="arXiv">
   </a>
+  <a href="https://huggingface.co/heyh97791/ColorFM/resolve/main/ECCV_sup.pdf">
+  <img src="https://img.shields.io/badge/Supplementary-Material-purple?logo=academia&logoColor=white" alt="Supplementary Material">
+</a>
   <a href="https://heyh31.github.io/ColorFM_page/">
     <img src="https://img.shields.io/badge/Project-Page-blue?logo=googlechrome&logoColor=white" alt="Project Page">
   </a>
