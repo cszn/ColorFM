@@ -23,6 +23,9 @@
   <a href="https://heyh31.github.io/ColorFM_page/">
     <img src="https://img.shields.io/badge/Project-Page-blue?logo=googlechrome&logoColor=white" alt="Project Page">
   </a>
+  <a href="https://huggingface.co/heyh97791/ColorFM">
+    <img src="https://img.shields.io/badge/HuggingFace-Model-green?logo=huggingface&logoColor=white" alt="Hugging Face Model">
+  </a>
   <a href="https://huggingface.co/datasets/heyh97791/ColorFM">
     <img src="https://img.shields.io/badge/HuggingFace-Dataset-yellow?logo=huggingface&logoColor=white" alt="Hugging Face Dataset">
   </a>
